@@ -1,0 +1,44 @@
+@charset "utf-8";
+/* CSS Document */
+.bloco1, .bloco2  { padding: 8px; }
+.bloco1{ background-color:#999; }
+.bloco2{ background-color:#eee; height: 800PX;}
+
+.topo{ /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,f1f1f1+50,e1e1e1+51,f6f6f6+100;White+Gloss+%231 */
+background: #ffffff; /* Old browsers */
+background: -moz-linear-gradient(top, #ffffff 0%, #f1f1f1 50%, #e1e1e1 51%, #f6f6f6 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, #ffffff 0%,#f1f1f1 50%,#e1e1e1 51%,#f6f6f6 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, #ffffff 0%,#f1f1f1 50%,#e1e1e1 51%,#f6f6f6 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f6f6f6',GradientType=0 ); /* IE6-9 */ }
+
+
+.blocoD{ background-color:#3586C9 ; margin-bottom: 4px;height: 400PX; }
+.blocoB{ background-color:#E51536; margin-bottom: 4px;height: 400PX; }
+.blocoF{ background-color: #E51215; margin-bottom: 4px;height: 400PX; }
+
+.rodape{background-color: #E51215; margin-bottom: 4px;height: 50px;}
+#logo{ width:200px; height: 150px;  }
+
+
+
+
+
+/* enable absolute positioning */
+.inner-addon {
+  position: relative;
+}
+
+/* style glyph */
+.inner-addon .glyphicon {
+  position: absolute;
+  padding: 10px;
+  pointer-events: none;
+}
+
+/* align glyph */
+.left-addon .glyphicon  { left:  0px;}
+.right-addon .glyphicon { right: 0px;}
+
+/* add padding  */
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; }

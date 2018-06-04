@@ -1,0 +1,188 @@
+/********************All Pages*****************/
+body{
+	background-color: whitesmoke;
+    font-family: inherit;
+}
+
+a{
+    text-decoration: none !important;
+}
+
+.AliMenu{
+    color: white;
+    text-decoration: none !important;
+    font-size: 17px;
+}
+
+.AliMenu:hover{
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+}
+
+/*******************Header*********************/
+header{
+    height: 80px;
+    background-color: black;
+    color: whitesmoke;
+    margin-bottom: 10px;
+}
+
+.login-group{
+    margin-top: 2px;
+}
+
+label{
+    color: black;
+}
+
+.logoA{
+    color: white;
+}
+
+.logoA:hover{
+    color: gray;
+    font-size: 30px;
+}
+
+.GroupFormH{
+    margin-top: 10px;
+}
+
+.border-radius{
+    border-radius: 20px;
+}
+
+.botao-center{
+    width: 228px;
+    margin-left: 12px;
+    margin-bottom: 15px;
+}
+
+.login-div{
+    width: 230px;
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+}
+
+.DivDrop{
+    display: none;
+    background: white;
+    height: 250px;
+    width: 250px;
+    position: absolute;
+    z-index: 9999;
+    border-radius: 15px;
+}
+
+.DropBtn{
+    margin-left: 100px;
+    margin-top: 15px;
+
+
+}
+
+/*******************begin**********************/
+
+.menu{
+    margin-bottom: 15px;
+}
+
+.opc{
+    text-align: center;
+    height: 45px;
+    border: 1px solid royalblue;
+    background-color: dodgerblue;
+}
+
+.opc:hover{
+    background-color: royalblue;
+}
+
+.div-Principal{
+    background-color: bisque;
+}
+
+/******************Chat************************/
+
+.cht{
+    background-color: white;
+    height: 250px;
+    border: 3px solid black;
+}
+
+/*---------------------Upload-----------------*/
+
+.divUpload{
+	margin-top: 8%;
+}
+
+/*******************Footer*********************/
+
+footer{
+    height: 60px;
+    background-color: black;
+    color: whitesmoke;
+}
+
+.PFooter{
+    margin-top: 18px;
+}
+
+.ftA{
+    color: white;
+}
+
+.ftA:hover{
+    color: white;
+    font-size: 14px;
+}
+
+.aFtName{
+    color: white;
+}
+
+.aFtName:hover{
+    color: gray;
+    
+}
+
+.page-footer{
+    padding-top:20px;
+    background-color: dimgray;
+}
+
+.right{
+    float: right;
+}
+
+.page-footer .footer-copyright{
+    min-height:50px;
+    align-items:center;
+    padding:10px 0px;
+    color:rgba(255,255,255,0.8);
+    background-color: black;
+}
+
+
+
+
+
+/*----------------------------TESTE---------------------------------*/
+/*
+
+.nav.navbar-nav li a:hover{
+    transition: border-bottom 0.2s !important; 
+    color: #9bf0e1;
+    border-bottom: 2px solid  #9bf0e1;
+    
+}
+
+.nav.navbar-nav li a:active{
+    color: #9bf0e1 !important;
+}
+
+.nav.navbar-nav li a:visited{
+    color: none !important;
+}
+*/
