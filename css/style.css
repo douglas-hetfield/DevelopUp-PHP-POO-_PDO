@@ -89,6 +89,8 @@ label{
 }
 
 .opc{
+    padding-top: 10px;
+    list-style-type: none;
     text-align: center;
     height: 45px;
     border: 1px solid royalblue;
@@ -105,16 +107,96 @@ label{
 
 /******************Chat************************/
 
-.cht{
-    background-color: white;
-    height: 250px;
-    border: 3px solid black;
+#mensagens{
+    width:  100%;
+    font-family: fantasy;
+    height: 300px;
+    max-height: 300px;
+    overflow: auto;
+    overflow-x: hidden;
+    border: 1px solid gray;
+    border-radius: 3px;
+    padding: 6px;
+    margin:4px;
+}
+#mensagem{
+    display: block;
+    width: 700px;
+    padding: 6px;
+    margin:4px;
+    margin-right: 0px;
 }
 
+.btnEnviar{
+    width: 120px;
+    margin-top: 3px;
+}
+
+.right{
+    float: right;
+    background-color: #fa7a7f !important;
+}
+.justRight{
+    float: right;
+}
+.left{
+    float: left;
+}
+
+.balaoChat{
+    background-color: white;
+    border:1px solid black;
+    border-radius: 4px;
+    padding:10px;
+    margin-top: 5px;
+    width: 80%;
+}
+
+ul .listMens{
+    list-style-type: none;
+}
+ul .resultado{
+    overflow: auto;
+}
 /*---------------------Upload-----------------*/
 
 .divUpload{
 	margin-top: 8%;
+}
+
+/*___________________archives_________________*/
+
+.ulHort{
+    padding:0px;
+    margin:0px;
+    background-color: whitesmoke;
+    list-style:none;
+}
+.liHort{
+    display: inline;
+    margin-right: 5px;
+    padding-right: 9px;
+    border-right: 1px solid black;  
+}
+
+.liHortL{
+    display: inline;
+    margin-right: 5px;
+    padding-right: 9px;
+   
+}
+
+.linkMenuHort{
+    font-size: 16px;
+    color: black;
+}
+
+.navHort .ulHort .liHort .linkMenuHort:hover{
+    color: rgba(102,102,190,1);
+}
+
+.linhaDaTabela:hover{
+    background-color: gray; 
 }
 
 /*******************Footer*********************/
@@ -152,7 +234,7 @@ footer{
     background-color: dimgray;
 }
 
-.right{
+#right{
     float: right;
 }
 
@@ -162,6 +244,14 @@ footer{
     padding:10px 0px;
     color:rgba(255,255,255,0.8);
     background-color: black;
+}
+
+.linkin{
+    color: white;
+}
+
+.linkin:hover{
+    color: darkred;
 }
 
 

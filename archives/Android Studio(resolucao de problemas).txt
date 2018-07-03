@@ -1,0 +1,23 @@
+ 2
+down vote
+
+I got a solution to this problem.
+
+Follow these simple steps:
+
+    Click File > Settings (on a Mac, Android Studio > Preferences) to open the Settings dialog.
+
+    In the left pane, expand Build, Execution, Deployment and then click Gradle.
+    Under Global Gradle settings, UNCHECK the Offline work checkbox.
+    Click Apply or OK for your changes to take effect.
+
+It will fix the problem.
+
+For the internet connection use the HTTP proxy for Android Studio
+
+Following steps:
+
+    From the menu bar, click File > Settings (on a Mac, click Android Studio > Preferences).
+    In the left pane, click Appearance & Behavior > System Settings > HTTP Proxy. The HTTP Proxy page appears.
+    Select Auto-detect proxy settings to use an automatic proxy configuration URL for the proxy settings or Manual proxy configuration to enter each of the settings yourself. For a detailed explanation of these settings, visit official website.
+    Click Apply or OK for your changes to take effect.

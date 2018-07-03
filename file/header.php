@@ -12,6 +12,7 @@
             setcookie("nome", $dados['nome'], time()+ (3600 * 24) * 365);
             setcookie("color", $dados['color'], time()+ (3600 * 24) * 365);
             setcookie("email", $email, time()+ (3600 * 24) * 365);
+            setcookie("id", $dados['idPessoa'], time()+ (3600 * 24) * 365);
             header("location:index.php");
         }else{
             $e = null;
@@ -36,7 +37,7 @@
 
 ?>
 
-<header class="row" style="background-color: <?php echo $color; ?>">
+<header class="row">
     <div class="col-xs-3 col-md-3">
         <h2><a class="logoA" href="index.php?url=begin">DevelopUs</a></h2>
     </div>
@@ -74,7 +75,7 @@
                 <div class="form-group login-div">
                     <li>
                         <label for="email">Email:</label>
-                        <input class="form-control" type="email" name="email" placeholder="Digite seu Email" required>
+                        <input class="form-control" type="email" name="email" placeholder="Digite seu Email" autocomplete="off" required>
                     </li>
                 </div>
                 

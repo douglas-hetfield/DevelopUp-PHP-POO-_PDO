@@ -10,9 +10,9 @@ class Conecta {
             $pdo -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return $pdo;
         } catch (PDOException $erro){
-            echo "Erro ao conectar:". $erro->getMenssage;
+            echo "Erro ao conectar:". $erro->getMenssage();
         } catch (Exception $e){
-            echo "Erro ao executar o programa: ". $e->getMessage;
+            echo "Erro ao executar o programa: ". $e->getMessage();
         }
     }
 
@@ -27,6 +27,6 @@ class Conecta {
         }
     }
     public function desconectaBD(){
-        mysql_close($conn);
+        mysqli_close($conn);
     }
 }

@@ -11,16 +11,15 @@
     <div class="container-fluid page-footer">
         <div class="row">
             <div class="col-md-8">
-                <h5 class="white-text">Footer Content</h5>
-                <p class="">You can use rows and columns here to organize your footer content.</p>
+                <h5 class="white-text">DevelopUs Open-Source</h5>
+                <p class="">Todo nosso conhecimento deve ser compartilhado e não guardado.<br> Você que compartilha e ensina, aprende em dobro e acaba criando novas amizades!</p>
             </div>
             <div class="col-md-4">
                 <h5 class="white-text">Links</h5>
                 <ul>
-                    <li><a class="" href="#!">Link 1</a></li>
-                    <li><a class="" href="#!">Link 2</a></li>
-                    <li><a class="" href="#!">Link 3</a></li>
-                    <li><a class="" href="#!">Link 4</a></li>
+                    <li><a class="linkin" href="#!">LinkedIn</a></li>
+                    <li><a class="linkin" href="#!">GitHub</a></li>
+                    <li><a class="linkin" href="#!">Google Drive</a></li>
                 </ul>
             </div>
         </div>
@@ -28,7 +27,7 @@
     <div class="footer-copyright">
         <div class="container">
             © <?php echo date("Y"); ?> Copyright 
-            <a class="aFtName right" href="#!">Douglas Teixeira</a>
+            <a class="aFtName" id="right" href="#!">Douglas Teixeira</a>
         </div>
     </div>
 </footer>

@@ -77,11 +77,11 @@ class PessoaDAO {
         require_once "conexao.php";
         try{
             $con = new Conecta();
-            $sql = "SELECT * FROM Pessoa where email=:email limit 1";
+            $sql = "SELECT idPessoa FROM Pessoa where email=:email limit 1";
             $stmt = $con->getConection()->prepare($sql);
             $stmt->bindValue(":email", $email);
             $stmt->execute();
-            $dados = $stmt->fetch(POD::FETCH_ASSOC);
+            $dados = $stmt->fetch(PDO::FETCH_ASSOC);
             return $dados;
         }catch(PDOException $exc){
             echo "Erros de: ". $exc->getMessage();
