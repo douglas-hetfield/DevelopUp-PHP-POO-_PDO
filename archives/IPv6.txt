@@ -1,0 +1,15 @@
+/0enable
+configure terminal
+ipv6 unicast-routing
+interface fastEthernet0/0
+ipv6 enable
+ipv6 address  FC00:2::/64
+no shutdown
+ctrl+z para voltar ao normal
+show ipv6 interface brief - para verificar se realmente a configuração foi feita.
+exit
+enter
+
+- pra remover ip errado: botar no antes ex: no ipv6 address
+
+no serial - ipv6 address 2001:DBB:1::/64 e nos roteadores ipv6 route ::/0 serial0/0/0

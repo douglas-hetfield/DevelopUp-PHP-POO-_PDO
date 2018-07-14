@@ -1,0 +1,21 @@
+Antes, habilitar o roteamento:
+(config)# ipv6 unicast-routing
+
+Para criar o pool local:
+(config)# ipv6 local pool PRODUCAO 2001:db8:AAAA::/64 64
+
+Para criar o pool DHCP:
+(config)# ipv6 dhcp pool PRODUCAO
+
+Para definir as configurações gerais do pool:
+(config-dhcpv6)# prefix-delegation pool PRODUCAO
+(config-dhcpv6)# dns-server 2001:db8:AAAA::a
+(config-dhcpv6)# domain-name senaqui.net
+
+Para habilitar o serviço na interface:
+(config)# interface gigabit 0/0
+(config-if)# ipv6 enable
+(config-if)# ipv6 address 2001:db8:AAAA::1/64
+(config-if)# ipv6 address fe08::1 link-local
+(config-if)# ipv6 nd managed-config-flag
+(config-if)# ipv6 dhcp server PRODUCAO

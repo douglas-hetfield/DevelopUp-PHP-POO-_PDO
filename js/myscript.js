@@ -13,48 +13,6 @@ function ajustes(form){
     form.numaquina.value = form.numaquina.value.toUpperCase();
 }
 
-
-function masc_phone(masc){
-    if(masc.value.length == 2){
-        masc.value += "-";
-    }
-    if(masc.value.length == 7){
-        masc.value += "/";
-    }
-}
-
-function salto(campo,digito){
-    if(campo == "numaquina"){
-        if(digito.length > 8){
-            document.chamado.motivo.focus();
-        }
-    }   
-}
-
-function confirma(go){
-    nome = document.getElementById('named').value;
-        
-        if(confirm("Confirma a EXCLUSÂO desse usuario?")){
-            alert('Usuario EXCLUÍDO com Sucesso.');
-            return true;
-        }
-        else{
-            return false;
-        }
-}
-
-function confirma2(reative){
-    nome = document.getElementById('named').value;
-        
-        if(confirm("Confirma a REATIVAÇÂO desse usuario?")){
-            alert('Usuario REATIVADO com Sucesso! \n OBS: Agora esse usuario está na página de "Usuarios Ativos".');
-            return true;
-        }
-        else{
-            return false;
-        }
-}
-
 function piscar(){
         var tempo = 100;
         var ob = document.getElementById("image");

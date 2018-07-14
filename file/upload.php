@@ -23,8 +23,13 @@
 				<label for="about">Categoria do Arquivo:</label>
 				<select name="about" id="about" class="form-control" required>
 					<option value="">Selecione</option>
-					<option value="desenvolvimento">Programação (Functions, Scripts..)</option>
-					<option value="redes">Redes (Packet Tracer, GNS3..)</option>
+					<option value="desenvolvimento">Desenvolvimento (Functions, Classes, Scripts..)</option>
+					<option value="UML">UML (StarUML, BrModelo...)</option>
+					<option value="algoritmo">Algoritmos (VisualG)</option>
+					<option value="Banco de Dados">Banco de Dados</option>
+					<option value="redes">Redes (IOS, Packet Tracer, GNS3..)</option>
+					<option value="Linux">Linux</option>
+					<option value="Windows">Windows</option>
 					<option value="pdf">PDFs de Conhecimento</option>
 					<option value="outros">Outros</option>
 				</select>
@@ -32,7 +37,7 @@
 
 			<div class="form-group col-md-6">
 				<label for="description">Descrição:</label>
-				<input class="form-control" type="text" name="description" placeholder="Descreva o arquivo que você está enviando para ser compartilhado!" required>	
+				<input class="form-control" type="text" autocomplete="off" name="description" placeholder="Descreva o arquivo que você está enviando para ser compartilhado!" maxlength="120" required>	
 			</div>
 			<button class="btn btn-primary justRight" type="submit" id="go" name="go">Enviar</button>
 			

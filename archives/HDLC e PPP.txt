@@ -1,0 +1,46 @@
+ENCAPSULAMENTO PPP E HDLC
+=========================
+
+Para habilitar o encapsulamento HDLC na interface:
+(config)# interface serial 0/0/0
+(config-if)# encapsulation hdlc
+
+Para habilitar o encapsulamento PPP na interface:
+(config)# interface serial 0/0/0
+(config-if)# encapsulation ppp
+
+Para verificar as configurações gerais interface: 
+# show interfaces serial 0/0/0
+# show controllers serial 0/0/0
+
+AUTENTICAÇÃO (PPP)
+==================
+
+Definir o hostname das máquinas:
+(config)# hostname ISP
+(config)# hostname CENTRAL
+
+Criar um login e senha (no outro router):
+(config)# username ISP password cisco
+(config)# username CENTRAL password cisco
+
+Para habilitar a autenticação PAP (no ISP) (diferente do CHAP, o PAP username pode ser diferente desde que faz os comandos abaixo de ambos os lado ppp pap):
+(config-if)# ppp authentication pap
+(config-if)# ppp pap sent-username CENTRAL password cisco
+
+Fazer também o "inverso" na conexão serial do CENTRAL:
+(config-if)# ppp authentication pap
+(config-if)# ppp pap sent-username ISP password cisco
+
+Para habilitar a autenticação CHAP (na autenticação via CHAP tem que ser iguais login e senha de ambas as pontas por conta do HASH):
+(config-if)# ppp authentication chap
+
+Para verificar se a autenticação está funcionando:
+# debug ppp authentication
+
+Para verificar as configurações gerais do PPP:
+# debug ppp authentication
+# debug ppp compression
+# debug ppp error
+# debug ppp negotiation
+# debug ppp packet

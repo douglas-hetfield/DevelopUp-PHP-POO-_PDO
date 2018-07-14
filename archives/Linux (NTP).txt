@@ -1,0 +1,30 @@
+===
+NTP
+===
+
+Para instalar o serviço:
+# apt-get install ntpd ntpdate
+
+Para editar a configuração:
+# nano /etc/ntp.conf
+driftfile /var/lib/ntp/ntp.drift
+server pool.ntp.org iburst
+restrict 127.0.0.1
+restrict 192.168.144.0 mask 255.255.255.0 notrust
+broadcast 192.168.144.255
+disable auth
+broadcastclient
+
+Obs.: como ele já vem "pré-configurado" de fábrica, procurar estas entradas no arquivo de configuração e alterar, conforme acima...
+
+Para visualizar as informações do servidor:
+# ntpdate -q pool.ntp.org
+
+Para atualizar o relógio interno do sistema:
+# ntpdate -u pool.ntp.org
+
+Por fim, para ativar o serviço:
+# systemctl start ntpd
+# systemctl enable ntpd
+
+Para testar, configurar o Windows XP para usar o IP do servidor, nas opções de data e hora do sistema.

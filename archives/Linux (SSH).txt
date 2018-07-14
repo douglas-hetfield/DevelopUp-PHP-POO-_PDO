@@ -1,0 +1,33 @@
+﻿=========================
+SISTEMA OPERACIONAL LINUX
+=========================
+
+
+SSH
+===
+
+
+Para instalar o SSH:
+# apt-get install openssh-server
+
+
+Para ativar/habilitar o serviço:
+# systemctl start ssh
+# systemctl enable ssh
+
+Para habilitar a conexão para root:
+# nano /etc/ssh/sshd_config
+PermitRootLogin yes
+
+Para realizar uma conexão remota:
+# ssh darkstar@192.168.144.1
+# ssh 192.168.254.1
+
+USO DE CERTIFICADO
+===================
+
+Ao logar-se pela 1a. vez, o Putty solicitará a aceitação do certificado...
+
+Para desabilitar o login através de senha:
+# nano /etc/sshd_config
+PasswordAuthentication no

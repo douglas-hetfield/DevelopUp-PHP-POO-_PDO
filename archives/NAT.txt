@@ -1,0 +1,54 @@
+NAT estático / dinâmico
+
+Para configurar o NAT estático:
+(config)# ip nat inside source static 192.168.127.254 209.165.200.254
+
+Para configurar o NAT dinâmico:
+(config)# ip nat pool NAT-D 209.165.200.227 209.165.200.240 netmask 252.255.255.224
+(config)# ip nat pool NAT-D 209.165.200.227 209.165.200.240 prefix-length 27
+
+Para liberar o acesso através da ACL (dinâmico):
+(config)# access-list 1 permit 192.168.254.0 0.0.255.255
+
+Para "agregar" a ACL ao NAT (dinâmico):
+(config)# ip nat inside source list 1 pool NAT-D
+
+Sobrecarga de NAT
+
+Para liberar o acesso através da ACL:
+(config)# access-list 1 permit 192.168.127.0 0.0.0.255
+
+Para "agregar" a ACL ao NAT com sobrecarga (pela interface):
+(config)# ip nat inside source list 1 interface serial 0/1/0 overload
+
+Para "agregar" a ACL ao NAT com sobrecarga (pelo pool):
+(config)# ip nat inside source lista 1 pool LOCAL overload
+
+Definição das interfaces
+
+Para identificar a interface interna ou externa:
+(config-if)# ip nat inside
+(config-if)# ip nat outside
+
+Para identificar as interfaces através do NVI:
+(config-if)# ip nat enable
+
+Administração
+
+Para checar as traduções do NAT:
+# show ip nat translations
+# show ip nat translations verbose
+
+Para checar as estatísticas gerais do NAT:
+# show ip nat statistics
+# show ip nat nvi statistics
+
+Para redefinir o tempo das entradas:
+# ip nat translation timeout 60
+
+Para apagar as entradas dinâmicas:
+# clear ip nat translation *
+
+Para habilitar as mensagens de depuração:
+# debug ip nat
+# debug ip nat detailed

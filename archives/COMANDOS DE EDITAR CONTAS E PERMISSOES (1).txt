@@ -1,0 +1,33 @@
+=================
+- Criar os usuários dudu, nana e lili e os grupos boys and girls.
+  # adduser dudu; adduser nana; adduser lili
+  # addgroup boys; addgroup girls
+- Associar os usuários aos grupos: dudu (boys); nana e lili (girls).
+  # usermod -g boys dudu
+  # usermod -g girls nana
+  # usermod -g girls lili
+- Criar o diretório /home/shared, definir o dono root e o grupo users.
+  # mkdir /home/shared
+  # chown root:users /home/shared
+- Definir as permissões da pasta shared da seguinte maneira:
+  # chmod a-rwx /home/shared
+  * Dono: listar, gravar e entrar;
+  # chmod u+rwx /home/shared
+  * Grupo: listar e entrar;
+  # chmod g+rx /home/shared
+  * Outros: nenhuma.
+- Dentro da pasta shared, criar os seguintes arquivos:
+  # cd /home/shared
+  * carrinho.txt (dono: dudu, grupo: boys).
+  # nano carrinho.txt
+  # chown dudu:boys carrinho.txt
+  * boneca.txt (dono: lili, grupo: girls).
+  # nano boneca.txt
+  # chown lili:girls boneca.txt
+- Definir as permissões destes arquivos desta maneira:
+  # chmod a-rwx *.txt
+  * Dono: Ler e gravar;
+  # chmod u+rw *.txt
+  * Grupo: apenas ler;
+  # chmod g+rw *.txt
+  * Outros: nenhuma.

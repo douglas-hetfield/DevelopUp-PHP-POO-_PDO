@@ -25,8 +25,10 @@ $_UP['erros'][4] = 'Não foi feito o upload do arquivo';
 // Verifica se houve algum erro com o upload. Se sim, exibe a mensagem do erro
 
 if ($_FILES['archive']['error'] != 0) {
-    die("Não foi possível fazer o upload, erro:" . $_UP['erros'][$_FILES['archive']['error']]);
-    exit; // Para a execução do 
+    die("Não foi possível fazer o upload <br>Erro: " . $_UP['erros'][$_FILES['archive']['error']] . "<br> Click <a href='../../index.php?url=upload&e=erro'>AQUI</a> para voltar
+        <br> Tamanho do arquivo enviado: ". $_FILES['archive']['size']. "
+        <br> Tamanho Permitido: ". $_UP['tamanho']);
+    exit; // Para a execução do arquivo
 }
 // Caso  chegue a esse ponto, não houve erro com o upload e o PHP pode continuar. leo.jog.jpg
 // Faz a verificação da extensão do arquivo
@@ -40,6 +42,9 @@ if (array_search($extensao, $_UP['extensoes']) === true) {
 // Faz a verificação do tamanho do arquivo
 if ($_UP['tamanho'] < $_FILES['archive']['size']) {
     echo "O arquivo enviado é muito grande, envie arquivos de até 10Mb.";
+    echo "<br>tamanho do arquivo: ". $_FILES['archive']['size'];
+    echo "<br>permitido: ". $_UP['tamanho'];
+    echo "<br> Click <a href='../../index.php?url=upload&e=erro'>AQUI</a> para voltar";
     exit;
 }
 // O arquivo passou em todas as verificações, hora de tentar movê-lo para a pasta
@@ -67,6 +72,7 @@ if (move_uploaded_file($_FILES['archive']['tmp_name'], $_UP['pasta'] . $nome_fin
     require_once "../model/Archive.php";
     $archive = new Archive();
 
+    $archive->setId($_COOKIE['id']);
     $archive->setName(htmlspecialchars($nome_final));
     $archive->setType(htmlspecialchars($extensao));
     $archive->setDateTime($date);

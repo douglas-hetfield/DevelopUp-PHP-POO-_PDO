@@ -1,0 +1,25 @@
+===========
+<<< SSH >>>
+===========
+
+Para cadastrar o domínio:
+# ip domain-name [DIGITAR O DOMÍNIO]
+
+Para criar a chave criptográfica:
+# crypto key generate rsa
+(Obs.: digitar "1024" quando ele pedir)
+
+Para habilitar o suporte ao SSH:
+# ip ssh version 2
+
+Criar uma conta de usuário:
+# username admin password upalele
+
+Para configurar as linhas VTY:
+# line vty 0 15
+# password upalele
+# transport input ssh
+# login
+
+Para testar a conexão via SSH pelo PC:
+C:\>ssh -l admin [IP DO DISPOSITIVO]

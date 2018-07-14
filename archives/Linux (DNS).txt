@@ -1,0 +1,82 @@
+===
+DNS
+===
+
+Para instalar o bind:
+# apt-get install bind9 dnsutils
+
+Para habilitar a chave criptográfica (antes, consultar /etc/bind/rndc.key):
+# nano /etc/bind/named.conf
+key "rndc-key" {
+	algorithm hmac-md5;
+	secret "NB4nUIvlTQBwnusUFBEPPw==";
+};
+
+Ou se preferir, adicionar automáticamente o conteúdo do arquivo (cuidado):
+# cat /etc/bind/rndc.key >> /etc/bind/named.conf
+
+Para criar as zonas (domínios):
+# nano /etc/bind/named.conf.local
+zone "senac.cg" {
+	type master;
+	file "/etc/bind/db.senac.cg";
+	allow-query { any; };
+};
+
+Para criar o banco de dados do domínio:
+# nano /etc/bind/db.senac.cg
+$TTL 604800
+@	IN	 SOA	server	myserver.senac.cg (
+	1	 ; Serial
+	604800	 ; Refresh
+	86400	 ; Retry
+	2419200  ; Expire
+	604800 ) ; Negative Cache TTL
+;
+
+			IN	NS	myserver.senac.cg.
+myserver.senac.cg.	IN	A	192.168.144.1
+winxp.senac.cg.		IN	A	192.168.144.127
+linux.senac.cg.		IN	A	192.168.144.254
+www			IN	CNAME	myserver.senac.cg.
+ftp			IN	CNAME	myserver.senac.cg.
+
+Para conferir as configurações feitas:
+# named-checkconf /etc/bind/named.conf.local
+# named-checkzone senac.cg /etc/bind/db.senac.cg
+
+O servidor DHCP deverá configurar o DNS para o endereço 192.168.144.1:
+# nano /etc/dhcp/dhcpd.conf
+subnet 192.168.144.0 netmask 255.255.255.0 {
+    range 192.168.144.2 192.168.144.251;
+    option subnet-mask 255.255.255.0;
+    option broadcast-address 192.168.144.255;
+    option routers 192.168.144.1;
+    option domain-name-servers 192.168.144.1;
+    option domain-name "senac.cg";
+}
+
+Não se esqueça de alterar o /etc/resolv.conf
+# nano /etc/resolv.conf
+domain senac.cg
+search senac.cg
+nameserver 127.0.0.1
+
+Obs.: ao reiniciar o Debian, a interface eth0 irá obter IP via DHCP pelo VirtualBox, que por sua vez irá ALTERAR o arquivo /etc/resolv.conf. Para evitar este inconveniente, execute as seguintes instruções:
+# nano /etc/dhcp/dhclient.conf
+supersede domain-name "senac.cg";
+prepend domain-name-servers 127.0.0.1;
+
+Para ativar e habilitar o serviço:
+# systemctl enable bind9
+# systemctl restart bind9
+
+Para testar o funcionamento do DNS:
+# dig myserver.senac.cg
+# nslookup myserver.senac.cg
+# ping client.senac.cg
+
+A estação cliente pode testar da seguinte maneira:
+C:\> ping -a myserver
+C:\> ping -a client
+# ping -a winxp

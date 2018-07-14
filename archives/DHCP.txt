@@ -1,0 +1,33 @@
+DHCP
+====
+
+Para ativar o serviço DHCP:
+(config)# service dhcp (já está ativado por padrão)
+
+Para definir os IPs que não fazem parte do escopo:
+(config)# ip dhcp excluded-address 192.168.127.1 192.168.127.10
+
+Para criar o pool DHCP:
+(config)# ip dhcp pool PRODUCAO
+
+Para definir a faixa de rede:
+(config-dhcp)# network 192.168.127.0 255.255.255.128
+
+Para definir o gateway padrão:
+(config-dhcp)# default-router 192.168.127.1
+
+Para definir o servidor DNS:
+(config-dhcp)# dns-server 209.165.200.254
+
+Para definir o domínio:
+(config-dhcp)# domain-name senaqui.net
+
+Para definir o tempo de concessão (dias):
+(config-dhcp)# lease 7
+
+Para exibir as definições do DHCP:
+# show ip dhcp pool
+# show ip dhcp database
+# show ip dhcp binding
+# show ip dhcp conflict
+# show ip dhcp server statistics

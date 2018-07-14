@@ -1,10 +1,19 @@
 <?php
 class Archive{
+	private $id;
 	private $about;
 	private $description;
 	private $name;
 	private $type;
 	private $dateTime;
+
+	public function setId($id){
+		$this->id = $id;
+	}
+
+	public function getId(){
+		return $this->id;
+	}
 
 	public function setAbout($about){
 		$this->about = $about;

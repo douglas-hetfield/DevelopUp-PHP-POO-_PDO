@@ -1,0 +1,33 @@
+Para entrar no modo de configuração global:
+> enable
+# configure terminal
+
+Para configurar o hostname:
+# hostname [NOME DO DISPOSITIVO]
+
+Para configurar o endereço IP da interface no router:
+# interface [TIPO DE INTERFACE] [ID DA INTERFACE]
+# ip address [IP DA INTERFACE] [MÁSCARA]
+# no shutdown
+
+Para configurar o gateway no switch:
+# IP DEFAULT-GATEWAY [IP DO ROUTER EM QUE ESTÁ CONECTADO]
+
+Para configurar a senha do modo privilegiado:
+# enable password [SENHA DO MODO PRIVILEGIADO]
+
+Para configurar a mensagem do dia (banner):
+# banner motd #[DIGITE A MENSAGEM]#
+
+Para configurar a senha da porta console:
+# line console 0       # line aux 0          # line vty 0 15
+# password [SENHA]#    # password [SENHA]    # password [SENHA]
+# login                # login               # login
+# exit                 # exit                # exit
+
+Para verificar as configurações (em modo privilegiado):
+# show running-config
+# show ip interface brief
+
+Para salvar as configurações (em modo privilegiado):
+# write memory

@@ -8,7 +8,7 @@ class PessoaDAO {
             $name = $pessoa->getNome();
             $sobrenome = $pessoa->getSobrenome();
             $email = $pessoa->getEmail();
-            $pws = crypt($pessoa->getEmail(),$pessoa->getPws());
+            $pws = $pessoa->getPws();
             $color = $pessoa->getColor();
 
             $con = new Conecta();
@@ -23,6 +23,32 @@ class PessoaDAO {
             return true;
         } catch (PDOException $exc){
             echo "Erros de: ". $exc->getMessage();
+        }
+
+    }
+    public function atualizar(Pessoa $pessoa){
+        require_once "conexao.php";
+        try{
+            $name = $pessoa->getNome();
+            $sobrenome = $pessoa->getSobrenome();
+            $email = $pessoa->getEmail();
+            $pws = $pessoa->getPws();
+            $color = $pessoa->getColor();
+            $idpessoa = $_COOKIE['id'];
+
+            $con = new Conecta();
+            $sql = "update pessoa set nome=:nome, sobrenome=:sobrenome, email=:email, pws=:pws, color=:color where idPessoa=:idpessoa";
+            $stmt = $con->getConection()->prepare($sql);
+            $stmt->bindParam(":nome", $name);
+            $stmt->bindParam(":sobrenome", $sobrenome);
+            $stmt->bindParam(":email", $email);
+            $stmt->bindParam(":pws", $pws);
+            $stmt->bindParam(":color", $color);
+            $stmt->bindParam(":idpessoa", $idpessoa);
+            $stmt->execute();
+            return true;
+        }catch(PDOException $exc){
+            echo "Erro de: ". $exc->getMessage();
         }
 
     }
@@ -46,7 +72,7 @@ class PessoaDAO {
          try {
 			 
             $con = new Conecta();
-            $sql = "SELECT nome, idPessoa, color from Pessoa where email=:email and pws=:pws";
+            $sql = "SELECT nome, sobrenome, idPessoa, color from Pessoa where email=:email and pws=:pws";
             $stmt = $con->getConection()->prepare($sql);
             $stmt->bindValue(":email", $email);
             $stmt->bindValue(":pws", $pws);
